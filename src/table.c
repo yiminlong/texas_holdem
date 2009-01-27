@@ -7,6 +7,8 @@
 #include "table.h"
 #include "logging.h"
 #include "player.h"
+#include "stack.h"
+#include "card.h"
 
 void init_new_game(table *t);
 
@@ -19,6 +21,7 @@ table *table_new(char *name)
 	t->players = malloc(sizeof(player*) * 3);
 	t->num_players = 0;
 	t->current_player = 0;
+	t->deck = NULL;
 
 	return t;
 }
@@ -78,11 +81,30 @@ void init_new_game(table *t)
 	for (i = 0; i < t->num_players; i++)
 	{
 		p = t->players[i];
-
 		table_broadcast(t, "%d: %s\n", (i + 1), p->name);
 	}
 
 	table_broadcast(t, "END LIST OF PLAYERS\n");
+
+	t->deck = generate_new_deck();
+	
+	//deal out the cards
+	for (i = 0; i < t->num_players; i++)
+	{
+		p = t->players[i];
+		p->card_one = (card*) stack_pop(t->deck);
+		send_str(t->players[i]->socket, "Your first card is a %s\n", card_tostring(p->card_one));
+		logging_info("%s dealt %s", t->players[i]->name, card_tostring(p->card_one));
+	}
+
+	for (i = 0; i < t->num_players; i++)
+	{
+		p = t->players[i];
+		p->card_two = (card*) stack_pop(t->deck);
+		send_str(t->players[i]->socket, "Your second card is a %s\n", card_tostring(p->card_two));
+		logging_info("%s dealt %s", t->players[i]->name, card_tostring(p->card_two));
+	}
+
 }
 
 void table_state_changed(table *t, player *p)
