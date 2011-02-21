@@ -5,7 +5,7 @@
              | |___)| |   )|___)|         |   )|   )| |   )|___)| | )
              | |__  | |  / |__  |__       |  / |__/ | |__/ |__  |  / 
 
-Telnet Holdem is an Texas Holdem Poker game server that allows people to
+Telnet Holdem is a Texas Holdem Poker game server that allows people to
 connect and play with each other using their telnet clients.
 
 Written purely as a way to test and build my own C development skills.
