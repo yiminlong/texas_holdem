@@ -375,8 +375,7 @@ void prompt_for_table(player *p)
 
 		t = (table*) iter->data;
 
-		send_str(p->socket, t->name);
-		send_str(p->socket, "\n");
+		send_str(p->socket, "%s\n", t->name);
 
 		iter = iter->next;
 	}

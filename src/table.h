@@ -1,6 +1,9 @@
 
 #include "player.h"
+<<<<<<< HEAD
 #include "card.h"
+=======
+>>>>>>> 7b4db5f0b185c64c2686b826939adea25b7b8b1b
 #include "stack.h"
 
 #ifndef TABLE_H
@@ -20,9 +23,7 @@ typedef struct table_
 	player **players;
 	int num_players;
 	int current_player;
-
 	stack *card_deck;
-	
 } table;
 
 table *table_new(char *name);
