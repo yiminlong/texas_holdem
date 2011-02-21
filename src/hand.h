@@ -18,9 +18,6 @@
 
 */
 
-#ifndef HAND_H
-#define HAND_H
-
 #include "card.h"
 #include "player.h"
 #include "table.h"
@@ -44,4 +41,3 @@ void hand_free(hand *h);
 
 hand* convert_to_hand(player *p, table *t);
 
-#endif

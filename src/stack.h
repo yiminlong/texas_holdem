@@ -18,10 +18,6 @@
 
 */
 
-
-#ifndef STACK_H
-#define STACK_H
-
 #include <stdbool.h>
 
 typedef struct stack_node_
@@ -43,5 +39,3 @@ void *stack_pop(stack *s);
 int stack_count(stack *s);
 bool stack_empty(stack *s);
 
-
-#endif

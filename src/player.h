@@ -21,9 +21,6 @@
 #include <stdbool.h>
 #include "card.h"
 
-#ifndef PLAYER_H
-#define PLAYER_H
-
 enum POLL_STATE
 {
 	USERNAME, //waiting for the user to provide a name
@@ -44,4 +41,3 @@ typedef struct player_
 player *player_new();
 void player_free(player *p);
 
-#endif

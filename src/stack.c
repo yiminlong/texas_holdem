@@ -75,9 +75,6 @@ int stack_count(stack *s)
 
 bool stack_empty(stack *s)
 {
-	if (s->node == NULL)
-		return true;
-	else
-		return false;
+	return (s->node == NULL);
 }
 
